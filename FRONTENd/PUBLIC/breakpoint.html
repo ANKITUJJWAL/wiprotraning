@@ -1,0 +1,44 @@
+!DOCTYPE html>
+<html>
+<head>
+<title>Media Query Breakpoints</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    padding: 50px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 900px) {
+    body {
+        background-color: lightyellow;
+    }
+}
+
+/* Desktop */
+@media (min-width: 901px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h2>Media Query Breakpoints</h2>
+<p>Resize the browser window.</p>
+<p>Mobile = Blue | Tablet = Yellow | Desktop = Green</p>
+
+</body>
+</html>
+

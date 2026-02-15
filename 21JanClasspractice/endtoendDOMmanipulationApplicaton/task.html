@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Manager - DOM Manipulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    input {
+      padding: 8px;
+      width: 70%;
+    }
+    button {
+      padding: 8px;
+      margin: 3px;
+      cursor: pointer;
+    }
+    li {
+      padding: 6px;
+      margin: 5px 0;
+      background: #e3f2fd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .highlight {
+      background: yellow;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Task Manager</h2>
+
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add Task</button>
+
+  <ul id="taskList"></ul>
+
+  <h3>Traversal Actions</h3>
+  <button onclick="highlightFirst()">Highlight First</button>
+  <button onclick="highlightLast()">Highlight Last</button>
+</div>
+
+<script>
+let selectedTask = null;
+
+// ADD TASK
+function addTask() {
+  const input = document.getElementById("taskInput");
+  const taskText = input.value.trim();
+
+  if (taskText === "") {
+    alert("Task cannot be empty!");
+    return;
+  }
+
+  const li = document.createElement("li");
+  li.textContent = taskText;
+
+  // Select task on click
+  li.onclick = function () {
+    selectTask(this);
+  };
+
+  // Edit Button
+  const editBtn = document.createElement("button");
+  editBtn.textContent = "Edit";
+  editBtn.onclick = function (e) {
+    e.stopPropagation();
+    editTask(li);
+  };
+
+  // Delete Button
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.onclick = function (e) {
+    e.stopPropagation();
+    deleteTask(li);
+  };
+
+  li.appendChild(editBtn);
+  li.appendChild(deleteBtn);
+
+  document.getElementById("taskList").appendChild(li);
+  input.value = "";
+}
+
+// SELECT TASK FOR TRAVERSAL
+function selectTask(task) {
+  clearHighlights();
+  selectedTask = task;
+  task.classList.add("highlight");
+
+  console.log("Selected Task:", task.textContent);
+  console.log("Parent:", task.parentElement);
+  console.log("Previous Sibling:", task.previousElementSibling);
+  console.log("Next Sibling:", task.nextElementSibling);
+}
+
+// UPDATE TASK
+function editTask(task) {
+  const newTask = prompt("Edit task:", task.firstChild.textContent);
+  if (newTask && newTask.trim() !== "") {
+    task.firstChild.textContent = newTask;
+  }
+}
+
+// DELETE TASK
+function deleteTask(task) {
+  if (confirm("Delete this task?")) {
+    task.remove();
+  }
+}
+
+// TRAVERSAL FUNCTIONS
+function highlightFirst() {
+  clearHighlights();
+  const list = document.getElementById("taskList");
+  if (list.firstElementChild)
+    list.firstElementChild.classList.add("highlight");
+}
+
+function highlightLast() {
+  clearHighlights();
+  const list = document.getElementById("taskList");
+  if (list.lastElementChild)
+    list.lastElementChild.classList.add("highlight");
+}
+
+// CLEAR HIGHLIGHTS
+function clearHighlights() {
+  document.querySelectorAll("li").forEach(li => li.classList.remove("highlight"));
+}
+</script>
+
+</body>
+</html>
+

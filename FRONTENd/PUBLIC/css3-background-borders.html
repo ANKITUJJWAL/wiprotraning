@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS3 Backgrounds & Borders</title>
+
+<style>
+body {
+    background-color: #f6f8fa;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Demo Box */
+.box {
+    width: 400px;
+    height: 250px;
+    padding: 20px;
+    font-size: 18px;
+    text-align: center;
+
+    /* Base background color so text is readable */
+    background-color: #eaf0f6;
+
+    /* Multiple Background Images */
+    background-image:
+        url("../IMAGE/sample-boat-400x300.png"),
+        url("../IMAGE/pngtree-simple-leaf-png-image_8920886.png");
+
+    background-position:
+        left top,
+        right bottom;
+
+    background-repeat:
+        no-repeat,
+        no-repeat;
+
+    /* Background size */
+    background-size: 80px 80px, 80px 80px;
+
+    /* Rounded corners */
+    border-radius: 15px;
+
+    /* Shadow */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+
+    /* Border image */
+    border: 15px solid transparent;
+    border-image: url("../IMAGE\11718.jpg") 30 round;
+
+    /* Text color */
+    color: #333;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>CSS3 Backgrounds & Borders</h2>
+    <p>
+        This box demonstrates multiple backgrounds, background-size,
+        border-radius, box-shadow, and border-image.
+    </p>
+</div>
+
+</body>
+</html>
+

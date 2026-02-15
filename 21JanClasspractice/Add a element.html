@@ -1,0 +1,25 @@
+<input id="fruitInput" placeholder="Enter fruit name"> <br>
+<button id="addBtn">Add Fruit</button>
+
+<ul id="fruits">
+  <li>Apple</li>
+  <li>Banana</li>
+</ul>
+
+<script>
+  const fruits = document.getElementById('fruits');
+  const input = document.getElementById('fruitInput');
+  const button = document.getElementById('addBtn');
+
+  button.addEventListener('click', () => {
+    const fruitName = input.value.trim(); 
+    if (fruitName !== "") {
+      const li = document.createElement('li');
+      li.textContent = fruitName;
+      fruits.append(li);
+      input.value = ""; 
+    } else {
+      alert("Please enter a fruit name!");
+    }
+  });
+</script>

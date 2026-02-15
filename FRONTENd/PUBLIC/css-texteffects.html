@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS3 Text Effects</title>
+
+<style>
+body {
+    background-color: #f6f8fa;
+    font-family: Arial, sans-serif;
+    padding: 50px;
+}
+
+/* Text Shadow */
+h1 {
+    text-shadow: 2px 2px 5px gray;
+}
+
+/* Text Overflow */
+.text-box {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.text-box p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</style>
+</head>
+
+<body>
+
+<h1>CSS3 Text Shadow Effect</h1>
+
+<div class="text-box">
+    <p>
+        This is a very long line of text that will not fit inside the box
+        and therefore will be cut off with ellipsis.
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS3 Web Fonts</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<style>
+/* Custom font from local file */
+@font-face {
+    font-family: MyFont;
+    src: url("myfont.woff");
+}
+
+/* Apply fonts */
+body {
+    background-color: #f6f8fa;
+    padding: 40px;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.custom {
+    font-family: MyFont, Arial, sans-serif;
+    font-size: 28px;
+    margin-top: 30px;
+    color: #2a5298;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Google Font (Roboto)</h2>
+<p>This text is displayed using the Roboto web font from Google Fonts.</p>
+
+<h2>Custom Font using @font-face</h2>
+<p class="custom">
+    This text uses a locally hosted custom font (myfont.woff).
+</p>
+
+<p>If <b>myfont.woff</b> is not present, the browser falls back to Arial.</p>
+
+</body>
+</html>

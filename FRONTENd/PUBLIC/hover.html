@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS3 Transformations</title>
+
+<style>
+body {
+    background-color: #f6f8fa;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 120px;
+    height: 120px;
+    background: steelblue;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+/* Transformations */
+.rotate:hover {
+    transform: rotate(45deg);
+}
+
+.scale:hover {
+    transform: scale(1.4);
+}
+
+/* Move on X-axis by 40 px 
+    transform: translateX(40px);
+*/
+/* Move on Y-axis by 40 px  
+    transform: translateY(40px);
+*/
+.translate:hover {
+    transform: translateY(40px);
+}
+
+
+.skew:hover {
+    transform: skew(20deg);
+}
+</style>
+</head>
+
+<body>
+
+<h2>CSS3 Transformations</h2>
+<p>Hover over each box to see the effect.</p>
+
+<div class="container">
+    <div class="box rotate">Rotate</div>
+    <div class="box scale">Scale</div>
+    <div class="box translate">Move</div>
+    <div class="box skew">Skew</div>
+</div>
+
+</body>
+</html>

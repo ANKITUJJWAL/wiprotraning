@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hide Sidebar</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.layout {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    background: #2a5298;
+    color: white;
+    padding: 20px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Hide sidebar on small screens */
+@media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+    <div class="sidebar">Sidebar Menu</div>
+    <div class="content">
+        <h2>Main Content</h2>
+        <p>Resize the screen to hide the sidebar.</p>
+    </div>
+</div>
+
+</body>
+</html>

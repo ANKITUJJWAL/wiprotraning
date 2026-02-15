@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Books</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+<body>
+
+<h2>Books</h2>
+<div class="container">
+    <ul>
+    <% books.forEach(b => { %>
+        <li><%= b.title %> - <%= b.author %></li>
+    <% }) %>
+    </ul>
+</div>
+</body>
+</html>

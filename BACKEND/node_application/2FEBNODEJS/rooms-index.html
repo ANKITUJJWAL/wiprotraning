@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Socket.IO Rooms Demo</title>
+  <style>
+    body { font-family: sans-serif; max-width: 720px; margin: 20px auto; }
+    .row { display: flex; gap: 8px; margin: 8px 0; }
+    input, button { padding: 8px; }
+    #log { border: 1px solid #ddd; padding: 10px; height: 300px; overflow: auto; }
+    .sys { color: #666; }
+    .msg { margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <h2>Rooms (Grouped Chats)</h2>
+
+
+  <div class="row">
+    <input id="username" placeholder="Your name" />
+    <input id="room" placeholder="Room name (e.g., sports)" />
+    <button id="join">Join Room</button>
+    <button id="leave">Leave Room</button>
+  </div>
+
+
+  <div class="row">
+    <input id="text" placeholder="Message to room" style="flex:1" />
+    <button id="send">Send</button>
+  </div>
+
+
+  <div id="log"></div>
+
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io(); // connects to same origin
+    const $username = document.getElementById('username');
+    const $room = document.getElementById('room');
+    const $text = document.getElementById('text');
+    const $log = document.getElementById('log');
+
+
+    function line(html, cls='msg') {
+      const div = document.createElement('div');
+      div.className = cls;
+      div.innerHTML = html;
+      $log.appendChild(div);
+      $log.scrollTop = $log.scrollHeight;
+    }
+
+
+    document.getElementById('join').onclick = () => {
+      const username = $username.value.trim() || 'Anonymous';
+      const room = $room.value.trim();
+      if (!room) return line('Enter a room name.', 'sys');
+      socket.emit('joinRoom', { room, username });
+    };
+
+
+    document.getElementById('leave').onclick = () => {
+      const room = $room.value.trim();
+      if (!room) return line('Enter a room name.', 'sys');
+      socket.emit('leaveRoom', room);
+    };
+
+
+    document.getElementById('send').onclick = () => {
+      const room = $room.value.trim();
+      const text = $text.value.trim();
+      if (!room) return line('Join a room first.', 'sys');
+      if (!text) return;
+      socket.emit('roomMessage', { room, text });
+      $text.value = '';
+    };
+
+
+    // receive system messages (join/leave notices)
+    socket.on('system', (msg) => line(`${msg}`, 'sys'));
+
+
+    // receive room messages
+    socket.on('roomMessage', ({ user, text, time, room }) => {
+      line(`<strong>[${room}] ${user}</strong> @ ${time}: ${text}`);
+    });
+  </script>
+</body>
+</html>

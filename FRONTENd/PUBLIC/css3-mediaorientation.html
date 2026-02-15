@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Orientation Media Query</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    padding: 50px;
+    transition: 0.5s;
+}
+
+/* Portrait mode */
+@media (orientation: portrait) {
+    body {
+        background-color: lightpink;
+    }
+}
+
+/* Landscape mode */
+@media (orientation: landscape) {
+    body {
+        background-color: lightgreen;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h2>Device Orientation Demo</h2>
+<p>Rotate your device or resize the browser window.</p>
+<p>The background color changes based on orientation.</p>
+
+</body>
+</html>

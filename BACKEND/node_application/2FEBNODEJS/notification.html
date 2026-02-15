@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script> -->
+  </head>
+  <body>
+    <h4>Notification Example</h4>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      //   const socket = io("http://localhost:3001");
+      socket.on("notification", (data) => {
+        console.log(data.message, "at", data.time);
+      });
+    </script>
+  </body>
+</html>

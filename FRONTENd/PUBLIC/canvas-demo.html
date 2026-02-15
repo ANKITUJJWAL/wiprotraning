@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f8fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        canvas {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="myCanvas" width="400" height="200" style="border:1px solid black;"></canvas>
+
+    <script>
+        const c = document.getElementById("myCanvas");
+        const ctx = c.getContext("2d");
+
+        // Draw rectangle
+        ctx.fillStyle = "blue";
+        ctx.fillRect(20, 20, 150, 80);
+
+        // Draw text
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "white";
+        ctx.fillText("HTML5 Canvas", 30, 70);
+    </script>
+
+</body>
+</html>

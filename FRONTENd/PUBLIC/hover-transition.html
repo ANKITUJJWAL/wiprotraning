@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS3 Transitions</title>
+
+<style>
+body {
+    background-color: #f6f8fa;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+    background-color: #2a5298;
+    color: white;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    /* Transition */
+    /*
+    The transition shorthand property combines four individual properties in this order: transition-property, transition-duration, transition-timing-function, and transition-delay. 
+    all (transition-property): Specifies that the transition effect should be applied to all animatable CSS properties of the element (like opacity, background-color, transform, width, etc.).
+    0.6s (transition-duration): Defines the time it takes for the transition to complete, in this case, 0.6 seconds (600 milliseconds).
+    ease (transition-timing-function): Specifies the speed curve of the transition. The ease function is the default value and makes the transition start slow, speed up in the middle, and then slow down at the end. This is equivalent to cubic-bezier(0.25, 0.1, 0.25, 1.0).
+    0.5s (implicit transition-delay): Since delay is specified, the transition will start after 0.5 seconds have passed when the element's state changes
+    */
+    transition: all 0.6s ease 0.5s;
+}
+
+.box:hover {
+    background-color: #ff6b6b;
+    width: 300px;
+    transform: rotate(5deg);
+}
+</style>
+</head>
+
+<body>
+
+<h2>CSS3 Transitions</h2>
+<p>Hover over the box</p>
+
+<div class="box">Hover Me</div>
+
+</body>
+</html>

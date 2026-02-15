@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Employee Manager</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body class="bg-light">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <!-- Card -->
+          <div class="card shadow">
+            <div class="card-body">
+              <h3 class="text-center mb-4">Employee Manager</h3>
+
+              <!-- Form -->
+              <div class="mb-3">
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  placeholder="Employee Name"
+                />
+              </div>
+
+              <div class="mb-3">
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="Employee Email"
+                />
+              </div>
+
+              <div class="mb-3">
+                <input
+                  type="text"
+                  id="role"
+                  class="form-control"
+                  placeholder="Employee Role"
+                />
+              </div>
+
+              <div class="d-grid mb-4">
+                <button class="btn btn-primary" onclick="addEmployee()">
+                  Add Employee
+                </button>
+              </div>
+
+              <!-- Employee List -->
+              <ul id="employeeList" class="list-group list-group-flush"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compiled JS (from app.ts) -->
+    <script src="./dist/app.js"></script>
+  </body>
+</html>

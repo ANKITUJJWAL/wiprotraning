@@ -1,0 +1,9 @@
+<input type="text" id="name" placeholder="Enter name">
+<p id="output"></p>
+
+<script>
+let input = document.getElementById("name");
+input.addEventListener("input", () => {
+  document.getElementById("output").textContent = input.value.toUpperCase();
+});
+</script>

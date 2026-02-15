@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function myFunction() {
+            document.getElementById("demo2").innerHTML = "Hello JavaScript Again!";
+        }
+    </script>
+
+    <script src="../js/sample.js"></script>
+</head>
+<body>
+
+<h1>My First JavaScript</h1>
+
+
+<button type="button" 
+    onclick="document.getElementById('demo1').innerHTML = 'Hello JavaScript!'">Click Me </button>
+
+
+<button type="button" onclick="myFunction()">Click Me</button>
+
+<p id="demo1">Javascript In Action!</p>
+
+<p id="demo2">Javascript In Action Again!</p>
+
+<p id="demo3" onclick="mySampleFunction()">Javascript In Action Again and Again!</p>
+
+<noscript>
+    Your browser does not support JavaScript!
+</noscript>
+</body>
+</html> 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Private Chat</title>
+  </head>
+  <body>
+    <h3>Your Socket ID: <span id="myId"></span></h3>
+ 
+    <input id="to" placeholder="Recipient socket ID" />
+    <input id="msg" placeholder="Message" />
+    <button onclick="sendPrivate()">Send Private Message</button>
+ 
+    <ul id="messages"></ul>
+ 
+  <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+ 
+      socket.on("yourId", (id) => {
+        document.getElementById("myId").textContent = id;
+      });
+ 
+      function sendPrivate() {
+        const to = document.getElementById("to").value;
+        const msg = document.getElementById("msg").value;
+ 
+        socket.emit("privateMessage", { to, msg });
+ 
+        document.getElementById("msg").value = "";
+      }
+ 
+      socket.on("privateMessage", ({ from, msg }) => {
+        const li = document.createElement("li");
+        li.textContent = `Private message  from (${from}): ${msg}`;
+        document.getElementById("messages").appendChild(li);
+      });
+    </script>
+  </body>
+</html>

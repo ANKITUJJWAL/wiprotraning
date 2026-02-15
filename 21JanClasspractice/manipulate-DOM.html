@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <title>DOM Manipulation Demo</title>
+</head>
+<body>
+    
+  <div style="display:flex; gap:8px; align-items:center;">
+    <input id="todoInput" placeholder="Add item">
+    <button id="addBtn">Add</button>
+  </div>
+
+   <ul id="list"></ul>
+
+<script>
+    const input = document.getElementById('todoInput');
+    const list  = document.getElementById('list');
+    document.getElementById('addBtn').addEventListener('click', addItem);
+
+    function addItem(){
+        const text = input.value.trim();
+        if(!text) return;
+
+        const li = document.createElement('li');
+        li.textContent = text + ' ';
+        // update button
+        const edit = document.createElement('button');
+        edit.textContent = 'Edit';
+        edit.addEventListener('click', () => {
+            const next = prompt('Update item:', text);
+            if (next !== null) li.firstChild.textContent = next + ' ';
+        });
+        // delete button
+        const del = document.createElement('button');
+        del.textContent = 'Delete';
+        del.addEventListener('click', () => li.remove());
+
+        li.append(edit, del);
+        list.append(li);
+        input.value = '';
+    }
+</script>
+
+</body>
+</html>

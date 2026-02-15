@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO Chat</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      input {
+        padding: 5px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Simple Chat</h2>
+    <ul id="messages"></ul>
+
+
+    <input id="msg" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+
+
+    <!--loads the Socket.IO client library into your browser -->
+    <script src="/socket.io/socket.io.js"></script>
+
+
+    <script>
+        
+      /*
+The following line, const socket = io()  creates a live connection (WebSocket) from the browser to the Socket.IO server.
+It uses the io() function (provided by socket.io.js) to:
+Automatically detect the server URL (window.location by default)
+Establish a connection using:
+WebSocket protocol
+
+
+Start the handshake process (exchange session info, heartbeat intervals, etc.)
+
+
+After this call, the variable socket becomes your client-side connection object.
+
+
+*/
+      const socket = io(); // connects automatically
+
+
+      function sendMessage() {
+        const msg = document.getElementById("msg").value;
+        socket.emit("chatMessage", msg); // send to server
+        document.getElementById("msg").value = "";
+      }
+
+
+      // Receive messages from server
+      socket.on("chatMessage", (msg) => {
+        const li = document.createElement("li");
+        li.textContent = msg;
+        document.getElementById("messages").appendChild(li);
+      });
+    </script>
+  </body>
+</html>

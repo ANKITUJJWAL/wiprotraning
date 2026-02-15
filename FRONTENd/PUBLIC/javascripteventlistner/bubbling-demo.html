@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>      
+<meta charset="UTF-8">
+<title>Event Bubbling Demo</title>
+</head>
+<body>  
+    <div id="outer">
+        <button id="inner">Click Me</button>
+    </div>
+
+<script>
+    outer.addEventListener("click", () => alert("Outer clicked!"));
+
+    inner.addEventListener("click", (e) => {
+        alert("Button clicked!");
+        e.stopPropagation(); // stops here
+    });
+</script>
+
+</body>
+</html>

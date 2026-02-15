@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rendering Engine Demo</title>
+
+<style>
+body {
+    background-color: #f6f8fa;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+}
+
+/* Box */
+.box {
+    width: 150px;
+    height: 150px;
+    background: #2a5298;
+    margin: 50px auto;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+    /* Vendor-prefixed transforms */
+    -webkit-transform: rotate(20deg);   /* Safari, Chrome (old) */
+    -moz-transform: rotate(20deg);      /* Firefox */
+    -ms-transform: rotate(20deg);       /* IE / Edge (old) */
+    transform: rotate(20deg);           /* Modern standard */
+}
+</style>
+</head>
+
+<body>
+
+<h2>Rendering Engines & Vendor Prefixes</h2>
+
+<p>
+Open this page in different browsers:
+Chrome (Blink), Firefox (Gecko), Safari (WebKit).
+The box should be rotated in all of them.
+</p>
+
+<div class="box">CSS3</div>
+
+</body>
+</html>

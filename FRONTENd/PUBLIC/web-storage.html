@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="result"></div>
+
+<script>
+const x = document.getElementById("result");
+
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+    //  localStorage.setItem("lastname", "Smith");
+    //  localStorage.setItem("bgcolor", "yellow");
+     sessionStorage.setItem("firstname", "Rohit");
+     sessionStorage.setItem("bgcolor", "lightblue");
+    // Retrieve
+     x.innerHTML = sessionStorage.getItem("firstname");
+     x.style.backgroundColor = sessionStorage.getItem("bgcolor");
+
+    // x.innerHTML = sessionStorage.getItem("lastname");
+    // x.style.backgroundColor = sessionStorage.getItem("bgcolor");
+
+  
+} else {
+  x.innerHTML = "Sorry, no Web storage support!";
+}
+</script>
+
+</body>
+</html>
